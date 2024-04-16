@@ -86,6 +86,8 @@ if uploaded_file is not None:
     # Read image and get resolution
     image = Image.open(uploaded_file)    
     file_name = uploaded_file.name        
+    # dump image to disk
+    image.save(file_name)
     diamond_calculator = DiamondAreaCalculator(file_name)    
     marked_area_percentage, marked_area_image = diamond_calculator.process_image()    
     all_pixels = diamond_calculator.get_all_pixels()
