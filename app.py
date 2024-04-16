@@ -50,7 +50,7 @@ class DiamondAreaCalculator:
             else:
                 img = tmp_img
             # Enhance the image by increasing saturation
-            enhance_image = False  # Set this flag to True if you want to enhance the image, False otherwise
+            enhance_image = True  # Set this flag to True if you want to enhance the image, False otherwise
             if enhance_image:
                 enhancer = ImageEnhance.Color(img)
                 saturation_maximized = enhancer.enhance(5.0)  # Increasing saturation by a factor of 5
