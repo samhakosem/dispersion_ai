@@ -138,3 +138,4 @@ if uploaded_file is not None:
         st.warning(f"Error processing image. Make sure to upload image with transparent background.")
 else:
     st.info("Please upload an image file.")
+
