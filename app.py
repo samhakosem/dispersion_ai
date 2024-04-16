@@ -84,12 +84,17 @@ uploaded_file = st.file_uploader("Choose an image file", type=['jpg', 'jpeg', 'p
 
 if uploaded_file is not None:
     # Read image and get resolution
-    image = Image.open(uploaded_file)    
-    file_name = uploaded_file.name        
-    # dump image to disk
-    image.save(file_name)
-    diamond_calculator = DiamondAreaCalculator(file_name)    
-    marked_area_percentage, marked_area_image = diamond_calculator.process_image()    
-    all_pixels = diamond_calculator.get_all_pixels()
-    st.write(f"Marked Area Percentage: {marked_area_percentage}%", "Image Resolution:", image.size,"Total Pixels:", all_pixels)
-    st.image(marked_area_image, caption=f"Marked Area Image")
+    try:
+        image = Image.open(uploaded_file)    
+        file_name = uploaded_file.name        
+        # dump image to disk
+        image.save(file_name)
+        diamond_calculator = DiamondAreaCalculator(file_name)    
+        marked_area_percentage, marked_area_image = diamond_calculator.process_image()    
+        all_pixels = diamond_calculator.get_all_pixels()
+        st.write(f"Marked Area Percentage: {marked_area_percentage}%", "Image Resolution:", image.size,"Total Pixels:", all_pixels)
+        st.image(marked_area_image, caption=f"Marked Area Image")
+    except Exception as e:
+        st.warning(f"Error processing image. Make sure to upload image with transparent background.")
+else:
+    st.info("Please upload an image file.")
