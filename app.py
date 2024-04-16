@@ -93,8 +93,9 @@ if uploaded_file is not None:
         marked_area_percentage, marked_area_image = diamond_calculator.process_image()    
         all_pixels = diamond_calculator.get_all_pixels()
         st.write(f"Marked Area Percentage: {marked_area_percentage}%", "Image Resolution:", image.size,"Total Pixels:", all_pixels)
-        st.image(marked_area_image, caption=f"Marked Area Image")
-        st.image(image, caption=f"Original Image")
+        col1, col2 = st.columns(2)  # Replace st.beta_columns() with st.columns()
+        col1.image(marked_area_image, caption="Marked Area Image")
+        col2.image(image, caption="Original Image")
     except Exception as e:
         st.warning(f"Error processing image. Make sure to upload image with transparent background.")
 else:
