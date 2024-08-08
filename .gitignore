@@ -2,3 +2,16 @@
 *.jpg
 *.jpeg
 .env
+dataset1
+dataset2
+dataset3
+dataset4
+images-trainingset11
+no-bg_dataset2
+model_trrain
+no-bg_no_bg_images
+images
+design.puml
+*.csv
+*.json
+.DS_Store
